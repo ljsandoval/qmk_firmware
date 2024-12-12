@@ -70,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_MUTE,      XXXXXXX,KC_K,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_RSFT,
                  KC_LGUI,KC_LALT,KC_LCTL,TL_LOWR, KC_ENT,        KC_SPC,  TL_UPPR, KC_RCTL, KC_RALT, KC_RGUI
 ),
-/* SYMNUM
+/* SYMNUM (LOWER)
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |   `  |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  | F10  | F11  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
@@ -91,26 +91,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_HASH ,KC_AMPR, KC_LCBR, KC_RCBR,   KC_LT, _______,   _______,    KC_GT,  KC_P1,  KC_P2,   KC_P3,  _______, _______,
                  _______, _______, _______, _______, _______,        _______, _______, KC_P0, KC_DOT, KC_DLR
 ),
-/* RAISE
- * ,----------------------------------------.                    ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |      |
+/* NAV (RAISE)
+// TODO: update these layout visualizations
+ * ,----------------------------------------.                     ,-----------------------------------------.
+ * |      |      |      |      |      |      |                    |      |      |      |      |      |  Del |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Esc  | Ins  | Pscr | Menu |      |      |                    |      | PWrd |  Up  | NWrd | DLine| Bspc |
+ * | Esc  |      |      |      |      |      |                    | PWrd | NWrd |      |      |      | DLine|
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  | LAt  | LCtl |LShift|      | Caps |-------.    ,-------|      | Left | Down | Rigth|  Del | Bspc |
- * |------+------+------+------+------+------|  MUTE  |    |       |------+------+------+------+------+------|
- * |Shift | Undo |  Cut | Copy | Paste|      |-------|    |-------|      | LStr |      | LEnd |      | Shift|
+ * | Tab  |      |      |      |      |      |-------.    ,-------| Left | Down | Up   | Rigth|      |      |
+ * |------+------+------+------+------+------| PAUSE |    |       |------+------+------+------+------+------|
+ * |Shift |      |      |      |      |      |-------|    |-------| LStr | LEnd |      |      |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *            | LGUI | LAlt | LCTR |LT | /Enter  /       \Space \  |RAISE | RCTR | RAlt | RGUI |
+ *            | LGUI | LAlt | LCTR |LT    | / Enter /       \Space \  |RAISE | RCTR | RAlt | RGUI |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
- *            `----------------------------------'           '------''---------------------------'
+ *            `-----------------------------------'           '------''---------------------------'
  */
+//  TODO: Rework parts of this to make it work across mac and win, may require more custom keycodes
 [_NAV] = LAYOUT(
-  _______, _______ , _______ , _______ , _______ , _______,                           _______,  _______  , _______,  _______ ,  _______ ,_______,
-  _______,  KC_INS,  KC_PSCR,   KC_APP,  XXXXXXX, XXXXXXX,                        KC_PGUP, KC_PRVWD,   KC_UP, KC_NXTWD,C(KC_BSPC), KC_BSPC,
-  _______, KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX, KC_CAPS,                       KC_PGDN,  KC_LEFT, KC_DOWN, KC_RGHT,  KC_DEL, KC_BSPC,
-  _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V), XXXXXXX, KC_MEDIA_PLAY_PAUSE,       _______,  XXXXXXX, KC_LSTRT, XXXXXXX, KC_LEND,   XXXXXXX, _______,
-                         _______, _______, _______, _______, _______,       _______, _______, _______, _______, _______
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                                   XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX, XXXXXXX,     KC_DEL,
+  _______,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX, XXXXXXX,                             KC_PRVWD, KC_NXTWD, XXXXXXX,   XXXXXX, XXXXXXX, C(KC_BSPC),
+  _______, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX,                                KC_LEFT,  KC_DOWN,   KC_UP,  KC_RGHT, XXXXXXX,    XXXXXXX,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_MEDIA_PLAY_PAUSE,    _______, KC_LSTRT,  KC_LEND, XXXXXXX,  XXXXXXX, XXXXXXX,    XXXXXXX,
+                         _______, _______, _______, _______, _______,              _______, _______, _______, _______, _______
 ),
 /* ADJUST
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -126,6 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
  *            `----------------------------------'           '------''---------------------------'
  */
+//  TODO: Add a means of switching mac/win mode and kvm switching (ctrl + ctrl + 1/2)
   [_ADJUST] = LAYOUT(
   XXXXXXX , XXXXXXX,  XXXXXXX ,  XXXXXXX , XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   QK_BOOT  , XXXXXXX,KC_QWERTY,KC_COLEMAK,CG_TOGG,XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
@@ -179,19 +182,13 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("Base\n"), false);
             break;
         case _NAV:
-            oled_write_P(PSTR("Raise"), false);
+            oled_write_P(PSTR("NAV"), false);
             break;
         case _SYMNUM:
-            oled_write_P(PSTR("Lower"), false);
+            oled_write_P(PSTR("SYMNUM"), false);
             break;
         case _ADJUST:
             oled_write_P(PSTR("Adj\n"), false);
-            break;
-        case _NUMPAD:
-            oled_write_P(PSTR("Nump\n"), false);
-            break;
-        case _SWITCH:
-            oled_write_P(PSTR("Swit\n"), false);
             break;
         default:
             oled_write_ln_P(PSTR("Undef"), false);
