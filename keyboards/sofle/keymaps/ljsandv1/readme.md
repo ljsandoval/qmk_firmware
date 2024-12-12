@@ -15,7 +15,7 @@ Features:
 - Left encoder controls volume up/down/mute. Right encoder PGUP/PGDOWN. 
 
 Note for my board, i need to build for a different controller by including the `-e CONVERT_TO=promicro_rp2040` flag in flash and build commands, eg:
-`ljsandv1]$ qmk flash -kb sofle -km rgb_default -e CONVERT_TO=promicro_rp2040`
+`qmk flash -kb sofle -km rgb_default -e CONVERT_TO=promicro_rp2040`
 
 
 ## My Notes
