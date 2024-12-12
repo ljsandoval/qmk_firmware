@@ -13,3 +13,34 @@ Features:
 - Modes for Mac vs Linux/Win support -> different order of modifiers and different action shortcuts on the "UPPER" layer (the red one in the image). Designed to simplify transtions when switching between operating systems often.
 - The OLED on master half shows selected mode and caps lock state and is rotated.
 - Left encoder controls volume up/down/mute. Right encoder PGUP/PGDOWN.
+
+## My Notes
+- Want to test homerow mods
+- Switch from mac to pc layout with the same keyboard shortcut used to switch kvm?             
+    - My top short cuts that need to switch between mac and pc 
+        - Snap windows to left/right/top/bottom/full 
+            -  win: gui + arrows
+            - mac: ctrl + alt + hjkl
+               note: this is changeable to some degree, swiching to cmd + arrows could work would just over ride moving insertion point around but i don't use that much and could rely on vim keys
+        - switch desktops 
+            - win: gui + ctrl + arrows
+            - mac: ctrl + arrows  
+        - show desktops
+            - win: gui + taba
+            - mac: ctrl up?
+        - switch windows(alt tab) 
+        - copy/paste/cut/undo/selectall
+            - win: ctrl + c/v/x/a
+            - mac: cmd + c/v/x/a,
+        - spotlight (no pc equiv?)
+        - close open window
+            - pc: alt + F4
+            - mac: cmd + q or cmd + w
+            
+    std win layout left of space: ctrl / win (gui) / alt
+    std mac layout left of space: ctrl / alt / cmd (gui)
+- would it be too annoying to have space or enter or both use tap dance to double as a layer?
+    - left space would activate a layer with arrows on right side
+    - left space would activate symbol layer 
+    
+- Would like to have a gaming layer that moves wasd to be in the positions of esdf to make it feel more right for gaming but that could make typing weird if i have to switch.. j
